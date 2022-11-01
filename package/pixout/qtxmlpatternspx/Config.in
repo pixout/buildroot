@@ -1,0 +1,5 @@
+config BR2_PACKAGE_QTXMLPATTERNSPX
+	bool "qtxmlpatternspx"
+	select BR2_PACKAGE_QTBASEPX
+	help
+		Qt 5 xmlpatterns module

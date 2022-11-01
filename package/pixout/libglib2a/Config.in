@@ -1,0 +1,14 @@
+config BR2_PACKAGE_LIBGLIB2A
+	bool "libglib2a"
+	depends on BR2_USE_WCHAR # gettext
+	depends on BR2_USE_MMU # fork()
+	select BR2_PACKAGE_LIBFFI
+	select BR2_PACKAGE_PCRE
+	select BR2_PACKAGE_ZLIB
+	help
+	  Low-level core library that forms the basis of GTK+ and GNOME.
+
+	  http://www.gtk.org/
+
+comment "libglib2a requires a toolchain with WCHAR support"
+	depends on !BR2_USE_WCHAR

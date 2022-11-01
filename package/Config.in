@@ -2673,4 +2673,15 @@ menu "Text editors and viewers"
 	source "package/vim/Config.in"
 endmenu
 
+menu "Pixout"
+	source "package/pixout/libnih/Config.in"
+	source "package/pixout/upstart/Config.in"
+	source "package/pixout/libglib2a/Config.in"
+menu "Qt5"
+	source "package/pixout/qtbasepx/Config.in"
+	source "package/pixout/qtxmlpatternspx/Config.in"
+endmenu
+
+endmenu
+
 endmenu

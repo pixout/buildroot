@@ -68,6 +68,11 @@ define RPI_FIRMWARE_INSTALL_TARGET_LIB
 endef
 endif
 
+# Install header files
+define RPI_FIRMWARE_INSTALL_TARGET_INC
+	cp -Rf $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc $(STAGING_DIR)/opt/
+endef
+
 ifeq ($(BR2_PACKAGE_RPI_FIRMWARE_INSTALL_VCDBG),y)
 define RPI_FIRMWARE_INSTALL_TARGET_CMDS
 	$(INSTALL) -D -m 0700 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/bin/vcdbg \
@@ -84,6 +89,7 @@ define RPI_FIRMWARE_INSTALL_IMAGES_CMDS
 	$(RPI_FIRMWARE_INSTALL_CONFIG)
 	$(RPI_FIRMWARE_INSTALL_DTB)
 	$(RPI_FIRMWARE_INSTALL_DTB_OVERLAYS)
+	$(RPI_FIRMWARE_INSTALL_TARGET_INC)
 endef
 
 $(eval $(generic-package))
